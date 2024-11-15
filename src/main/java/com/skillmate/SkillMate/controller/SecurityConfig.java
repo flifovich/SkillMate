@@ -3,6 +3,8 @@ package com.skillmate.SkillMate.controller;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,7 +15,19 @@ import javax.sql.DataSource;
 public class SecurityConfig {
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
+        JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        // Custom query to retrieve user by username
+        userDetailsManager.setUsersByUsernameQuery(
+                "SELECT username, password, enabled FROM users WHERE username = ?"
+        );
+
+        // Custom query to retrieve roles for the user
+        userDetailsManager.setAuthoritiesByUsernameQuery(
+                "SELECT username, authority FROM authorities WHERE username = ?"
+        );
+
+        return userDetailsManager;
     }
 
     @Bean
@@ -37,4 +51,13 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+
 }

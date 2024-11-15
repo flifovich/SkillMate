@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="user")
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Long id;
 
     @Column(name = "email")
     private String email;
@@ -20,23 +20,24 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "enabled") // acount active or not
-    private int enabled = 1;
+    @Column(name = "enabled") // account active or not
+    private boolean enabled;
 
     public User(){
 
     }
-    public User(String email, String username, String password) {
+    public User(String email, String username, String password, boolean enabled) {
         this.email = email;
         this.username = username;
         this.password = password;
+        this.enabled = enabled;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,11 +65,11 @@ public class User {
         this.password = password;
     }
 
-    public int getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

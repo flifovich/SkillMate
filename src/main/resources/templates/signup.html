@@ -24,27 +24,33 @@
 
       <div class="card-body">
         <div class="card-text">
-          <!-- Signup Form -->
-          <form action="/" th:action="@{/registerUser}" method="POST" class="form-horizontal" onsubmit="return doPasswordsMatch()">
 
+          <div th:if="${param.error}">
+            <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+              signup failed.
+            </div>
+          </div>
+
+          <!-- Signup Form -->
+          <form th:action="@{/signup}" th:object="${user}" method="POST" class="form-horizontal" onsubmit="return doPasswordsMatch()">
             <!-- Email -->
             <div style="margin-bottom: 25px;" class="input-group">
-              <input type="email" name="email" placeholder="Email" class="form-control" required />
+              <input type="email" th:field="*{email}" placeholder="Email" class="form-control" required />
             </div>
 
             <!-- Username -->
             <div style="margin-bottom: 25px;" class="input-group">
-              <input type="text" name="username" placeholder="Username" class="form-control" required />
+              <input type="text" th:field="*{username}" placeholder="Username" class="form-control" required />
             </div>
 
             <!-- Password -->
             <div style="margin-bottom: 25px;" class="input-group">
-              <input type="password" id="password" name="password" placeholder="Password" class="form-control" required />
+              <input type="password" th:field="*{password}" id="password" placeholder="Password" class="form-control" required />
             </div>
 
-            <!-- Repeat Password -->
+            <!-- Repeat Password (for client-side validation only) -->
             <div style="margin-bottom: 25px;" class="input-group">
-              <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" class="form-control" required />
+              <input type="password" id="repeatPassword" placeholder="Repeat Password" class="form-control" required />
             </div>
 
             <!-- Error message for password mismatch -->
@@ -76,11 +82,11 @@
     const passwordError = document.getElementById("passwordError");
 
     if (password !== repeatPassword) {
-      passwordError.style.display = "block"; // Show error message
-      return false; // Prevent form submission
+      passwordError.style.display = "block";
+      return false;
     } else {
-      passwordError.style.display = "none"; // Hide error message
-      return true; // Allow form submission
+      passwordError.style.display = "none";
+      return true;
     }
   }
 </script>
