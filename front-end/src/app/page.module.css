@@ -1,24 +1,8 @@
-.body1 {
-  font-size: 28px;
-  line-height: 42px;
+.container {
+  margin-inline: auto;
+  margin-top: 44px;
 }
 
-.body2 {
-  font-size: 24px;
-  line-height: 36px;
-}
-
-.body3 {
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.body4 {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.body5 {
-  font-size: 12px;
-  line-height: 18px;
+.heading {
+  text-align: center;
 }

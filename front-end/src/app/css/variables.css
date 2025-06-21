@@ -1,0 +1,51 @@
+:root {
+  --white: #ffffff;
+  --black: #000002;
+  --gray-50: #fbfafd;
+  --gray-100: #e2def8;
+  --gray-150: #cac6e1;
+  --gray-200: #b3aecb;
+  --gray-250: #9c98b4;
+  --gray-300: #86829d;
+  --gray-350: #716d87;
+  --gray-400: #484559;
+  --gray-450: #353243;
+  --gray-500: #1d1d2b;
+  --green-50: #efffc1;
+  --green-100: #e3ff96;
+  --green-150: #d8ff6b;
+  --green-200: #cdff40;
+  --green-250: #b9ea2e;
+  --purple-50: #f6efff;
+  --purple-100: #e1caff;
+  --purple-150: #cda6ff;
+  --purple-200: #b981ff;
+  --purple-250: #a45dff;
+  --purple-300: #9049eb;
+  --purple-350: #7533c9;
+  --purple-400: #5c21a7;
+  --purple-450: #451385;
+  --purple-500: #300963;
+  --system-red: #ed0000;
+
+  --desktop-heading-1: 52px;
+  --desktop-heading-2: 28px;
+  --desktop-heading-3: 24px;
+  --desktop-body-1: 28px;
+  --desktop-body-2: 24px;
+  --desktop-body-3: 20px;
+  --desktop-body-4: 16px;
+  --desktop-body-5: 12px;
+  --mobile-heading-1: 32px;
+  --mobile-heading-2: 24px;
+  --mobile-heading-3: 20px;
+  --mobile-body-1: 24px;
+  --mobile-body-2: 20px;
+  --mobile-body-3: 16px;
+  --mobile-body-4: 12px;
+  --mobile-body-5: 10px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}

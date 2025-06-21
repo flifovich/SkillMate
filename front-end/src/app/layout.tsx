@@ -1,27 +1,18 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Russo_One, Ubuntu } from 'next/font/google';
+import { Russo_One, Ubuntu } from 'next/font/google';
 
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 
 import './css/reset.css';
+import './css/variables.css';
 import './css/globals.css';
 import styles from './layout.module.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 const ubuntu = Ubuntu({
   variable: '--font-ubuntu',
   subsets: ['latin'],
-  weight: '400',
+  weight: ['400', '500', '700'],
   style: 'normal',
 });
 
@@ -44,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${russo_one.variable} ${ubuntu.variable}`}>
         <div className={styles.site}>
           <Header />
           <main>{children}</main>
