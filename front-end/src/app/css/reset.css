@@ -17,12 +17,6 @@ html {
   text-size-adjust: none;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
-
 /* Set shorter line heights on headings and interactive elements */
 h1,
 h2,
@@ -42,10 +36,12 @@ h4 {
   text-wrap: balance;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
+/* A elements get default styles */
+a {
   text-decoration-skip-ink: auto;
   color: currentColor;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Make images easier to work with */
@@ -62,9 +58,16 @@ svg {
 input,
 button,
 textarea,
-select {
+select,
+span {
   font-family: inherit;
   font-size: inherit;
+}
+
+button {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
 }
 
 /* Make sure textareas without a rows attribute are not tiny */

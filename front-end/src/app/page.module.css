@@ -6,3 +6,7 @@
 .heading {
   text-align: center;
 }
+
+.headingAccent {
+  color: var(--green-250);
+}

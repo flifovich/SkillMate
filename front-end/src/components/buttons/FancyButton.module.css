@@ -1,0 +1,90 @@
+@property --border-gradient-color-1 {
+  syntax: '<color>';
+  initial-value: #fff;
+  inherits: false;
+}
+
+@property --border-gradient-color-2 {
+  syntax: '<color>';
+  initial-value: #7228ff;
+  inherits: false;
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.wrapper {
+  transition: all 0.2s ease-in-out;
+}
+
+.wrapper:has(.button:hover) {
+  filter: drop-shadow(5px 8px 40px rgba(165, 117, 255, 0.6));
+}
+
+.button {
+  --edge-size: 1.5em;
+  background: linear-gradient(
+    90deg,
+    var(--border-gradient-color-1) 0%,
+    var(--border-gradient-color-2) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  clip-path: polygon(
+    0% var(--edge-size),
+    var(--edge-size) 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    calc(100% - var(--edge-size)) 100%,
+    0 100%
+  );
+  padding: 18px 45px;
+  transition: --border-gradient-color-1 0.8s, --border-gradient-color-2 0.6s;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(90deg, #a575ff 0%, #7126ff 100%);
+  clip-path: inherit;
+}
+
+.button:hover {
+  --border-gradient-color-1: #7228ff;
+  --border-gradient-color-2: #fff;
+}
+
+.button:active::after {
+  filter: brightness(1.07);
+}
+
+.text {
+  text-transform: uppercase;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.rotatingGradient {
+  background-image: conic-gradient(
+    from var(--gradient-angle),
+    #fff 0%,
+    #7228ff 25%,
+    #fff 50%
+  );
+  animation: rotation 4s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}

@@ -1,4 +1,8 @@
-import Logo from '../logo/Logo';
+import Link from 'next/link';
+
+import HeaderActions from '../header-actions/HeaderActions';
+import LogoText from '../logo/LogoText';
+import Navigation from '../navigation/Navigation';
 
 import styles from './Header.module.css';
 
@@ -6,9 +10,11 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Logo className={styles.logo} />
-        <div className={styles.da}></div>
-        <div className={styles.da}></div>
+        <Link href="/" className={styles.home}>
+          <LogoText className={styles.logo} />
+        </Link>
+        <Navigation />
+        <HeaderActions />
       </div>
     </header>
   );

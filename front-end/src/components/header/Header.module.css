@@ -2,13 +2,17 @@
   position: sticky;
   top: 0;
   padding: 40px 102px;
-  background-color: rgba(78, 58, 124, 0.288);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1700px;
+}
+
+.home {
+  flex-shrink: 0;
 }
 
 .logo {
