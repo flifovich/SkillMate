@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  list-style-type: none;
+}
+
+.link {
+  color: var(--gray-150);
+}

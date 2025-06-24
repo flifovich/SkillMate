@@ -1,0 +1,26 @@
+.footer {
+  padding: 40px 90px;
+  display: flex;
+}
+
+.logoDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+  margin-right: 300px;
+}
+
+.logo {
+  max-height: 70px;
+}
+
+.description {
+  color: var(--gray-150);
+  max-width: 51ch;
+}
+
+.quickLinks {
+  display: flex;
+  gap: 100px;
+}
